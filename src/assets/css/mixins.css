@@ -1,0 +1,226 @@
+/* Background Gradient */
+/* @param {Color} $startColor [#3C3C3C] - Start Color */
+/* @param {Color} $endColor [#999999] - End Color */
+
+@define-mixin background-gradient $startColor: #3c3c3c, $endColor: #999 {
+  background-color: $startColor;
+  background-image: linear-gradient(top, $startColor, $endColor);
+}
+
+/* Background Horizontal */
+/* @param {Color} $startColor [#3C3C3C] - Start Color */
+/* @param {Color} $endColor [#999999] - End Color */
+
+@define-mixin background-horizontal $startColor: #3c3c3c, $endColor: #999 {
+  background-color: $startColor;
+  background-image: linear-gradient(left, $startColor, $endColor);
+}
+
+/* Background Radial */
+/* @param {Color} $startColor [#3C3C3C] - Start Color */
+/* @param {Percentage} $startPos [0%] - Start position */
+/* @param {Color} $endColor [#999999] - End Color */
+/* @param {Percentage} $endPos [100%] - End position */
+
+@define-mixin background-radial $startColor: #fff, $startPos: 0%, $endColor: #000, $endPos:100% {
+  background: radial-gradient(ellipse at center, $startColor $startPos, $endColor $endPos);
+}
+
+/* Box */
+/* @param {*} $orient [horizontal] - Orientation */
+/* @param {*} $pack [center] - Pack */
+/* @param {*} $align [center] - Align */
+/* @require {mixin} css3-prefix */
+
+@define-mixin box $orient: horizontal, $pack: center, $align: center {
+  display: box;
+  box-orient: $orient;
+  box-pack: $pack;
+  box-align: $align;
+}
+
+/* Box RGBA */
+/* @param {Integer} $r [60] - Red */
+/* @param {Integer} $g [3] - Green */
+/* @param {Integer} $b [12] - Blue */
+/* @param {Double} $opacity [0.23] - Opacity */
+/* @param {Color} $color [#3C3C3C] - Color */
+
+@define-mixin box-rgba $r: 60, $g: 3, $b: 12, $opacity: 0.23, $color: #3c3c3c {
+  background-color: transparent;
+  background-color: rgba($r, $g, $b, $opacity);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$(color)', endColorstr='$(color)');
+  zoom: 1;
+}
+
+/* Columns */
+/* @param {Integer} $count [3] - Count */
+/* @param {Integer} $gap [10] - Gap */
+/* @require {mixin} css3-prefix */
+
+@define-mixin columns $count: 3, $gap: 10 {
+  column-count: $count;
+  column-gap: $gap;
+}
+
+/* Double Borders */
+/* @param {Color} $colorOne [#3C3C3C] - Color One */
+/* @param {Color} $colorTwo [#999999] - Color Two */
+/* @param {Size} $radius [0] - Radius */
+/* @require {mixin} css3-prefix */
+/* @require {mixin} border-radius */
+
+@define-mixin double-borders $colorOne: #3c3c3c, $colorTwo: #999, $radius: 0 {
+  border: 1px solid $colorOne;
+  box-shadow: 0 0 0 1px $colorTwo;
+  border-radius: $radius;
+}
+
+/* Flip */
+/* @param {Double} $scaleX [-1] - ScaleX */
+/* @require {mixin} css3-prefix */
+
+@define-mixin flip $scaleX: -1 {
+  transform: scaleX($scaleX));
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+/* Font Face */
+/* @param {Font} $fontFamily [myFont] - Font Family */
+/* @param {String} $eotFileSrc ['myFont.eot'] - Eot File Source */
+/* @param {String} $woffFileSrc ['myFont.woff'] - Woff File Source */
+/* @param {String} $ttfFileSrc ['myFont.ttf'] - Ttf File Source */
+/* @param {String} $svgFileSrc ['myFont.svg'] - Svg File Source */
+
+@define-mixin font-face $fontFamily: myFont, $eotFileSrc: 'myFont.eot', $woffFileSrc: 'myFont.woff', $ttfFileSrc: 'myFont.ttf', $svgFileSrc: 'myFont.svg', $svgFontID: '#myFont' {
+  font-family: $fontFamily;
+  src: url($eotFileSrc) format('eot'),
+  url($woffFileSrc) format('woff'),
+  url($ttfFileSrc) format('truetype'),
+  url($svgFileSrc + $svgFontID) format('svg');
+}
+
+/* Text Shadow */
+/* @param {Size} $x [2px] - X */
+/* @param {Size} $y [2px] - Y */
+/* @param {Size} $blur [2px] - Blur */
+/* @param {Color} $color [rgba(0,0,0,.4)] - Color */
+
+@define-mixin text-shadow $x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4) {
+  text-shadow: $x $y $blur $color;
+}
+
+/* Vertical align an element */
+/* @param {Position} $position */
+
+@define-mixin vertical-align $position: relative {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Absolute center inside an element */
+
+@define-mixin center-inside-element {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Media-query Breakpoints */
+
+@define-mixin bp-ip4 {
+  @media only screen and (max-width: 320px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin bp-ip6 {
+  @media only screen and (min-width: 321px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin bp-ip6-plus {
+  @media only screen and (min-width: 376px) and (max-width: 414px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin bp-tablet-vertical {
+  @media only screen and (min-width: 641px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin bp-desktop-sm {
+  @media only screen and (min-width: 769px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin bp-desktop-md {
+  @media only screen and (min-width: 1025px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin bp-desktop-lg {
+  @media only screen and (min-width: 1367px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin bp-desktop-ultra {
+  @media only screen and (min-width: 1441px) {
+    @mixin-content;
+  }
+}
+
+/* Center vertical align the content inside an element */
+/* @param {Height} $height - px */
+@define-mixin box-center-valign-content $height {
+  height: $height;
+  line-height: $height;
+  display: block;
+}
+
+/* Create a square box */
+/* @param {Size} $size - px */
+@define-mixin box-square $size {
+  width: $size;
+  height: $size;
+  display: block;
+}
+
+.no-gutter > [class*='col-'] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/* Margin */
+@for $i from 10 to 100 {
+  .bottom-$i {
+    margin-bottom: $(i)px;
+    @add-mixin bp-tablet-vertical {
+      margin-bottom: calc($(i) * 2px);
+    }
+    @add-mixin bp-desktop-md {
+      margin-bottom: calc($(i) * 3px);
+    }
+  }
+}
+
+@for $i from 10 to 100 {
+  .top-$i {
+    margin-top: $(i)px;
+  }
+}
+
+@for $i from 8 to 20 {
+  .fs-$i {
+    font-size: $(i)px;
+  }
+}

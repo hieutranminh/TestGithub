@@ -1,0 +1,74 @@
+/* ここにグローバルな定数を定義 */
+
+:root {
+  /** Color **/
+
+  /* Default */
+  --color-default: #fff;
+  --color-default-lighter: #c2c2c2;
+  --color-default-darker: #acacac;
+  --color-default-dark: #111111;
+
+  /* Primary colors */
+  --color-primary: #EE295F;
+
+  /* Success colors */
+  --color-success: #00a849;
+
+  /* Warning */
+  --color-warning: #ffc700;
+
+  /* Danger */
+  --color-danger: #f54747;
+
+  /* colors */
+  --whiteish: #f2f2f2;
+  --pink: #E96F92;
+  --purple: #75517D;
+  --yellow: #ffc700;
+  --green: #54fad4;
+  --primary-background-color: #931f22;
+  --primary-text-color: #fff;
+
+  /* options */
+  --duration: 0.8s;
+  --ease-in-out: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+  --ease-in: cubic-bezier(0.470, 0.000, 0.745, 0.715);
+  --ease-out: cubic-bezier(0.390, 0.575, 0.565, 1.000);
+  --size: 20px;
+  --hsize: --size/2;
+
+  /** Warning **/
+
+  /** Padding & margin **/
+
+  /** media queries **/
+
+  /* font-size */
+  --fs-8: 8px;
+  --fs-9: 9px;
+  --fs-10: 10px;
+  --fs-11: 11px;
+  --fs-12: 12px;
+  --fs-13: 13px;
+  --fs-14: 14px;
+  --fs-15: 15px;
+  --fs-16: 16px;
+
+  /** main contents **/
+  --main-height: calc(100% - 90px);
+
+}
+
+
+/* --info-phone-horizontal: "only screen and (max-width : 767px)";
+--info-phone: "only screen and (max-width : 640px)"; */
+
+/* --info-tablet-horizontal: "only screen and (max-width : 1160px)";
+--info-tablet-vertical: "only screen and (max-width : 992px)";
+--info-phone: "only screen and (max-width : 767px)";
+--info-phone-4: "only screen and (max-width : 320px)"; */
+@custom-media --info-tablet-horizontal only screen and (max-width : 1160px);
+@custom-media --info-tablet-vertical only screen and (max-width : 992px);
+@custom-media --info-phone only screen and (max-width : 767px);
+@custom-media --info-phone-4 only screen and (max-width : 320px);
